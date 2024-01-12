@@ -28,14 +28,34 @@
     </div>
 
     <script>
-        btnAdd.onclick = function () {
-            // 10. $().append()：多增加一個清單項目 
-            //   目標：希望按鈕點下去增加「得正」
+        // var x = "<li>迷客夏</li><li>50嵐</li><li>可不可熟成紅茶</li>"
+        // btnAdd.onclick = function () {
+        //     // 10. $().append()：多增加一個清單項目 
+        //     //   目標：希望按鈕點下去增加「得正」
+        //     // $('ol').append("<li>得正</li>");
+        //     // 20. 上一個步驟點選一次增加一個
+        //     //    該怎麼做可以變成點選一次清單數量翻倍?
+        //     //    ex. 3 > 6 > 12 > 24 ...
+        //     var y = "";
+        //     $("ol").append(
+        //         function(){         
+        //             x = x + x
+        //             return x
+        //         }
+        //     )
+        // }
 
-            // 20. 上一個步驟點選一次增加一個
-            //    該怎麼做可以變成點選一次清單數量翻倍?
-            //    ex. 3 > 6 > 12 > 24 ...
-        }
+// 老師方法:
+
+btnAdd.onclick = function () {
+var x = $('ol').html(); //獲取包含html標籤的內容 與text僅有內容不同
+console.log(x)//這個就會是清單現在的模樣
+
+$('ol').append(x);
+
+}
+
+        
     </script>
 
 </body>

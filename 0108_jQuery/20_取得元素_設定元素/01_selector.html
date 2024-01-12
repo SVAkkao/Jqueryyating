@@ -33,12 +33,31 @@
 
     <script>
         // 10. 挑選 h4 標籤
+        var apple = $("h4");
+        console.log(apple); //
 
         // 20. 透過 #myList 選擇 ul 標籤
 
-        // 30. 挑選 li 標籤
+        var bee = $("#myList");
 
-        // 60. jQuery 函式庫是否有針對 <input> 提供特殊的選擇方式？
+        console.log(bee);
+        // 30. 挑選 li 標籤
+        var cat = $("li:first-child");
+        
+        console.log(cat);
+
+
+        // 60. jQuery 函式庫是否有針對 <input> 提供特殊的選擇方式？(O)
+        //CSS的選擇。可以直接複製貼上到jQuery去執行
+        //-> $('input[type="button"]') 這裡成功
+
+
+        //jQuery $(':button') 成功
+        //:button{ color:red; } 失敗 因為是jQuery原創
+    
+    
+    
+    
     </script>
 
 </body>

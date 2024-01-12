@@ -11,6 +11,15 @@
 
 <body>
 
+    <pre>
+        $(selector).action() -> $(css的選擇器).行動()
+        ex: $("p") 選擇p標籤
+        ex: $(".test") 選擇.class
+        $()     ->函式
+        selector    ->css選擇器
+        action() -> action不是一個真實存在的函式
+    </pre>
+
     <h4>jQuery Syntax</h4>
     <p><a href="https://www.w3schools.com/jquery/jquery_syntax.asp">https://www.w3schools.com/jquery/jquery_syntax.asp</a></p>
 
@@ -24,11 +33,17 @@
     <script>
 
         // 30. 測試 $(document).ready() ;
-        
+        $(document).ready(function(){
+            console.log("C. 皮卡丘")
+        })
+        //顯示為 A B C
+        //因為ready是準備好，文件要跑完才會開始裡面的部分
     </script>
 
     <!-- 20. 請觀察這些 log 的順序 -->
     <script>console.log("B. 寫在 body ")</script>
+
+    
 
 </body>
 

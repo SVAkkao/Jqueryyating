@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    input[type='button']{
+        color: red;
+        background-color: aqua;
+    }
+    
+    #a+b{border: 3px solid yellow;}
+
+</style>
+
+</head>
+<body>
+    <div id="a"></div>
+    <b>皮卡丘22</b>
+    <hr>
+    <button>胖丁</button>    
+    <input type="button" value="皮卡丘">
+        <input type="submit">
+    <hr>
+    <form action="送到哪裡去-> 後端 -> 你的php">
+        <label for="">姓名</label>
+        <input type="text" name="" id=""> <br>
+    
+        <label for="">姓名</label>
+        <input type="text" name="" id=""> <br>
+        <label for="">姓名</label>
+        <input type="text" name="" id=""> <br>
+        <label for="">姓名</label>
+        <input type="text" name="" id=""> <br>
+        <input type="submit">
+    </form>
+<pre>
+1.外觀都是按鈕
+2.內在完全不同
+3.CSS ->jQuery ->解釋這兩個
+
+
+4.inputd type='button'
+->一般按鈕
+
+
+5.input type = "submit"(牽扯到後端)
+->表單<form>的最後，送出表單使用
+
+6.#a -> 有個元素的id屬性值是a
+
+
+
+</pre>
+
+<script src="./_js/jquery-3.6.0.js"></script>
+<script>
+    var dog = $("input[type='button']")
+    // =  $(':button')   jQery幫你簡化
+    console.log(dog)
+</script>
+</body>
+</html>

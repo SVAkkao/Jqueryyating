@@ -9,17 +9,23 @@
 
 <body>
     
-    <button id="btnPickItem">挑選</button>
+    <button id="btnFilterItem">挑選filter</button>
+    <button id="btnFindItem">挑選find</button>
+    <button id="btnChildrenItem">挑選children</button>
+    <button id="btnParentItem">挑選parent</button>
+    <button id="btnClosestItem">挑選closest</button>
+    <button id="btnEqItem">挑選eq</button>
+    <button id="btnContentsItem">挑選contents</button>
     <hr>
     
     <div id="tw">
         <h4>台灣水果</h4>
         <ul id="twList">
             <li class="grape">巨峰葡萄</li>
-            <li>金鑽鳳梨</li>
-            <li>麻豆文旦</li>
+            <li >金鑽鳳梨</li>
+            <li >麻豆文旦</li>
             <li>小玉西瓜</li>
-            <li>大湖草莓</li>
+            <li>小草莓</li>
         </ul>
     </div>
 
@@ -27,8 +33,8 @@
         <h4>日本水果</h4>
         <ul id="jpList">
             <li><b class="grape">麝香葡萄</b></li>
-            <li><b>夕張哈密瓜</b></li>
-            <li><b>甘王草莓</b></li>
+            <li><b>囂張哈密瓜</b></li>
+            <li><b>你啊罵內褲草莓</b></li>
             <li><b>愛媛柑橘</b></li>
             <li><b>岡山白桃</b></li>
         </ul>
@@ -40,14 +46,133 @@
       
         // * 比較底下幾種 尋找|篩選 元素的方式 *
 
-        // 10. filter   ===> $().filter()
-        // 11. find     ===> $().find()
-        // 12. children ===> $().children()
-        // 13. parent   ===> $().parent()
-        // 14. closest  ===> $().closest()
+        // 10. filter   ===> $().filter() 過濾
+        //目標: 請幫我挑選葡萄->葡萄->.grape
+
+        // btnFilterItem.onclick = function(){
+        //     $('li').filter('.grape').each(function(){
+        //     // demo.innerHTML = demo.innerHTML+this.innerHTML+"<br>";
+        //     $('#demo').append(this.innerHTML+"<br>")
+        // })
+        // }
+
+        //為什麼不用.grape就好了?
+        //->因為要分兩個階段挑選，才能測試jQuery函式庫提供的方法
         
-        // 15. eq       ===> $().eq()
-        // 16. contents ===> $().contents()
+        // filter: 針對li標籤過濾是否有 class 屬性值為 grape
+        // jQuery函式呼叫執行後,回傳了jQuery物件
+        // jQuery物件有一個filter方法 呼叫執行並給予了參數.grape 回傳了某個jQuery物件
+        //使用該jQuery物件的each方法，給予的參數為function console.log(this)
+
+
+        // x = $('li').filter('.grape').each(function(){
+        //     console.log(this);
+        // })
+        
+        btnFilterItem.onclick = function(){
+            $('li').filter(function(index,element){
+                //目標:我想要挑選出草莓 跟 哈密瓜
+                
+                
+                console.log(element.innerText.substring(2,4))
+                console.log(element.innerText.indexOf("草莓"))
+
+                return (element.innerText.indexOf("草莓") >= 0 || element.innerText.indexOf("哈密瓜") >= 0)
+                    //因為判斷式會回傳布林值 直接用就可以了 不需要在家return true
+
+                // if (element.innerText.substring(2,4) == "草莓" || 
+                //     element.innerText.substring(2,5) == "哈密瓜"){
+                //     console.log(element.innerText);
+                //     return true;
+                // } else {
+                //     return false;
+                // }
+
+                // console.log(element.innerText);
+                // return false;
+            })
+            .each(function(){
+                    $('#demo').append(this.innerHTML+"<br>");
+            })
+        }
+        
+        
+        // var cat = "貓咪大戰爭";
+ 
+        // var apple = cat.substring(0,4);
+        // console.log(apple);
+ 
+        // var bee = apple.padStart(7, "#");
+        // console.log(bee);
+        // //-----------------
+        // // 鏈式呼叫
+        /* console.log( 
+            cat
+            .substring(0,4)
+            .padStart(7, "#") );
+    
+*/
+        
+
+        // 11. find     ===> $().find()   尋找
+        btnFindItem.onclick = function(){
+        $('ul')
+        .find('b')
+        //filter找本人 find 找所有後代(子孫)
+        .each(function(){
+            $('#demo').append(this.innerHTML+"<br>");
+        })}
+
+        // 12. children ===> $().children()小孩?(爸媽小孩 值接生)
+        btnChildrenItem.onclick = function(){
+        $('li')
+        .children('b')
+        .each(function(){
+            $('#demo').append(this.innerHTML+"<br>");
+        })}
+
+        // 13. parent   ===> $().parent()  把這個小孩的爸媽裡面有的東西全挑出來
+        btnParentItem.onclick = function(){
+        $('.grape')
+        .parent()
+        .each(function(){
+            $('#demo').append(this.innerHTML+"<br>");
+        })}
+        // 14. closest  ===> $().closest() 最接近的
+
+        btnClosestItem.onclick = function(){
+        $('li')
+        .closest('ul')
+        .each(function(){
+            $('#demo').append(this.id+"<br>");
+        })}
+
+        // 15. eq       ===> $().eq()      相等
+        btnEqItem.onclick = function(){
+        var x = $('li')
+        .eq(0)
+        .text();  //因為eq一次只會找一個 不用each 
+        //text回傳的值為字串，所以無法再使用jQuery函式
+        $('#demo')
+        .text(x)
+        console.log(x);}
+        // 16. contents ===> $().contents()內容
+        btnContentsItem.onclick = function(){
+            $('b')
+            .contents()
+            //希望讓參數名稱是有意義的
+            //[object Text]你想要呈現的內容太多了，機器人不知道該怎麼辦
+            //console.log的訊息
+            //滑鼠移動到變數 or 參數的身上 觀察資料型態
+            //-->根據資料型態做出處理
+            .each(function(index,elem){
+            console.log($(elem).text());
+            $('#demo').append($(elem).text()+"<br>")
+        })
+        }
+
+
+
 
     </script>
 

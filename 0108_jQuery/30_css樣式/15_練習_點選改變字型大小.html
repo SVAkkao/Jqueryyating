@@ -14,14 +14,32 @@
     <p>等待您的光臨！！</p>
     <p>ก็ʕ•͡ᴥ•ʔ ก้</p>
 
+    
+
     <script>
         // 試試看
         $(document).ready(function () {
 
             // 10. 在body裡面加一顆按鈕，名稱叫做放大 
-
+            $('body').prepend('<button id="btn" onclick="apple()">放大</button>')
             // 20. 按鈕點選一次，文字大小增加2px， 慢慢放大
             
+            
+            btn.onclick=function(){
+                // var x = $('p').css('font-size')
+                // x = parseInt(x)+2 + "px"
+                // $('p').css('font-size',x)
+                // console.log(x)
+                //v1
+
+                /*v2*/
+                $('p').css('font-size',"+=2")
+
+                /*v3 顏色目前不能這樣搞
+                $('p').css('color',"+=2")
+                */
+            }
+
         });
     </script>
 </body>

@@ -12,10 +12,10 @@
     <hr>
     <div>
         <h4>底下是清單</h4>
-        <ol>
+        <ol id="apple">
             <li>迷客夏</li>
             <li>50嵐</li>
-            <li>可不可熟成紅茶</li>
+            <li id="bee">可不可熟成紅茶</li>
         </ol>
     </div>
 
@@ -29,7 +29,15 @@
           //    $().prepend() 
           //    $().append()
           //    $().appendTo()
+            $("#apple").before('蘋果');
+            $("#apple").after('香巴拉');
+            $("#apple").prepend('香菜');
+            $("#apple").append('臭菜');
+            $("<li>阿醜</li>").appendTo("#apple");
             
+
+
+
         }
     </script>
 

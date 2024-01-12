@@ -20,12 +20,25 @@
         // 10. 挑選 h3 元素，並且將抓取裡面的內容 
         //      目標：取得 Hello 文字
        
+        console.log($('#t--').text())
         // 20. 透過 JavaScript 的方式抓取內容
         //      目標：取得 1 ~ 4
         
+        console.log(document.getElementById("t--").innerText)
+        console.log(document.getElementById("a+b").innerText)
+        console.log(document.getElementById("a-b").innerText)
+        console.log(document.getElementById("a*b").innerText)
+        console.log(document.getElementById("a／b").innerText)
+
+
+
         // 30. 透過 jQuery 的方式抓取內容
         //      目標：取得 1 ~ 4
-         
+        console.log ($('span[id="a+b"]').text());
+        console.log ($('#a-b').text());
+        console.log ($('span[id="a*b"]').text());
+        console.log ($('#a／b').text());
+         //從這裡可以看出來 千萬不要用符號(+-*/!@#$%^)命名
     </script>
 
 </body>

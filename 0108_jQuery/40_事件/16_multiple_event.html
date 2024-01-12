@@ -23,9 +23,24 @@
 
         // 20. 透過事件監聽而產生的 "事件物件"
         //   * 點選 div 帶入座標
+        // $('#game').on('click', function(x){
+        //     console.log(x.offsetX);
+        //     console.log(x.offsetY);
+        // })
+
+        $('#game').on('click',function(eventObject){
+            $('#demo').text(`x:${eventObject.offsetX},y:${eventObject.offsetY}`)
+            console.log(eventObject.offsetX);
+            console.log(eventObject.offsetY);
+        })
+
 
         // 30. 同時設定兩個事件在 <li> 元素上
         //   * click 和 mouseover
+        $('li').on('click mouseover',function(){
+            console.log('吃雞排');
+        })
+
 
     </script>
 

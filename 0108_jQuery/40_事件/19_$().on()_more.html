@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <script src="../_js/jquery-3.6.0.js"></script>
+<style>
+    h4{
+        text-decoration: line-through;
+    }
+</style>
 </head>
 
 <body>
@@ -12,11 +17,52 @@
     <h4>jQuery event.data</h4>
     <p><a href='https://api.jquery.com/event.data/'>https://api.jquery.com/event.data/</a></p>
 
+
+
     <pre>
         練習製作代辦項目清單
         1. 使用者可以增加代辦項目
         2. 使用者點選代辦項目文字表示該項目已完成 (添加刪除線)
     </pre>
+    <hr>
+    <h1>代辦清單</h1>
+<input type="text"><button>加入清單</button>
+<hr>    
+<ul id = 'apple'>
+        <li>買餅乾</li>
+        <li>買飲料</li>
+    </ul>
+    <hr>
+    <ul id = 'bee'>
+        <li>買餅乾</li>
+        <li>買飲料</li>
+    </ul>
 
+
+    <script>
+        
+        $('button').on('click',function(){
+           var x = $('input').val()
+            $('ul').append(`<li>${x}</li>`)
+            //$('ul>li').on('click',function(){
+            //$(this).css("text-decoration","line-through")
+        //})
+        })
+
+
+        //元素一開始就在畫面上
+        // $('ul>li').on('click',function(){
+        //     $(this).css("text-decoration","line-through")
+        // })
+
+        //元素是動態元素 爸爸裡面的某個小孩
+        $('ul').on('click','li',function(){
+            $(this).css("text-decoration","line-through")
+        })
+    </script>
+
+
+
+    
 </body>
 </html>

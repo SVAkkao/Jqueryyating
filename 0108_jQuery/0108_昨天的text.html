@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        text()
+        有一個函式
+        1.如果沒有參數|資料的傳入，那函式會回傳特定元素的內容
+        2.如果有參數|資料的傳入，那函式會幫我設定特定的元素內容
+        我們應該也可以創造出類似的函示出來吧
+    
+        目標:創造一個類似的函式
+        1.函式名稱:myText
+        2.函式做甚麼:如果使用者呼叫myText的時候
+        -> 有傳入資料，我就去設定 #apple
+        -> 沒有傳入資料，我就去取得 #apple 的內容並且回傳給使用者
+
+    </pre>
+
+
+    <h1 id="apple">pika</h1>
+
+    <input type="text" id="intext">
+    <button onclick="myText()">啟動</button>
+
+    <script src="./_js/jquery-3.6.0.js"></script>
+
+    <script>
+
+
+
+
+        function myText(elementContent) {
+
+            //     var temp
+
+            //     if(elementContent != undefined){
+            //         document.getElementById('apple').innerText = elementContent
+            //     }else {
+
+            //         temp = document.getElementById('apple').innerText;
+            //     }
+            //     return temp
+            // }
+
+            // ver 3.0
+            return (elementContent != undefined)? 
+            document.getElementById('apple').innerText = elementContent
+            :document.getElementById('apple').innerText;
+            
+        }
+
+        var x = myText();
+        console.log(x)
+
+    </script>
+
+</body>
+
+</html>

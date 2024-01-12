@@ -8,6 +8,31 @@
 
 <body>
 
+    <pre>
+        $().each()
+        -> $函式呼叫執行後回傳了某個物件
+        -> 該物件有一個函式叫做each
+        -> 呼叫執行 某物件的each函式
+
+
+        ----------------
+        $.each()
+        -> $代表了某一個物件
+        -> 該物件有一個函式叫做each
+        -> 呼叫執行 $物件的each函式
+
+/*老師的:*/
+        $().each()
+        $函式  呼叫執行後回傳了
+        某物件 包含一個函式叫做 each
+        呼叫執行 某物件的 each 函式
+ 
+        ------------------
+        $.each()
+        呼叫執行 $物件的each方法
+
+    </pre>
+
     <h4>$().each()</h4>
     <p><a href="https://api.jquery.com/each/">https://api.jquery.com/each/</a></p>
 
@@ -21,18 +46,50 @@
     <h3>apple</h3>
     <h3>bee</h3>
     <h3>cat</h3>
+    <h3>dog</h3>
+    <h3>egg</h3>
 
     <script>
         // 10. 畫面準備好以後才開始執行
         $(function () {
 
             // 20. $().each(): 逐項取得所有 h3 元素 裡面的文字
+            /*
+            
+                each -> 每個 -> 跑迴圈的感覺
+            */
+
+           $('h3').each(function(){
+            //
+            //console.log(this.text()); // err: this.text is not a function
+            // jQuery函式呼叫執行後回傳的物件才有.html 方法可以用
+            // console.log(this.innerText); //成功
+            // console.log(this.innerHTML); //成功
+            // console.log($(this).html()); //成功
+            // console.log($(this).text()); //成功
+            
+                
+            })
+
+
 
             // 21. 將所有 h3 元素的文字改為斜體
 
-            // 30. $.each(): 讀出陣列裡面的項目
-            var list = ['dog', 'egg'];
+            $('h3').each(function(){
+                //this.style = "font-style:italic "
 
+                //取得元素內容->添加<i> -> 放回到元素
+                $(this).html(`<i>${$(this).html()}<i>`)
+                // $(this).html(`<i>${this.innerHTML}<i>`) 
+                    //JS原生方法比較好，不用一直去閱讀函式庫。可以減少網頁運算
+            })
+
+            // 30. $.each(): 讀出陣列裡面的項目
+            var list = ['dog', 'egg','fish'];
+            $.each(list,function(x,y){
+                //console.log(x); // 0 1 2 ->索引值 ->index
+                //console.log(y); // dog egg fish-> 陣列內容
+            })
         })
     </script>
 </body>
